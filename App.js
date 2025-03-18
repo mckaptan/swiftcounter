@@ -1,20 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+
+import LoginScreen from "./screens/LoginScreen";
+import FacebookLoginScreen from "./screens/FacebookLoginScreen"; // Facebook giriş ekranı eklendi ✅
+import HomeScreen from "./screens/HomeScreen";
+import GameScreen from "./screens/GameScreen";
+import LeaderboardScreen from "./screens/LeaderboardScreen";
+import TestFirebase from "./screens/TestFirebase";
+
+const Stack = createStackNavigator();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    return (
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="LoginScreen">
+                {/* Giriş ekranında video oynayacak, başlık görünmesin */}
+                <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
+                {/* Facebook giriş ekranı */}
+                <Stack.Screen name="FacebookLoginScreen" component={FacebookLoginScreen} />
+                {/* Ana ekranlar */}
+                <Stack.Screen name="HomeScreen" component={HomeScreen} />
+                <Stack.Screen name="GameScreen" component={GameScreen} />
+                <Stack.Screen name="LeaderboardScreen" component={LeaderboardScreen} />
+                <Stack.Screen name="TestFirebase" component={TestFirebase} />
+            </Stack.Navigator>
+        </NavigationContainer>
+    );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
