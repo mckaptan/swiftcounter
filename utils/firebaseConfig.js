@@ -4,7 +4,7 @@ import { getFirestore } from "firebase/firestore";
 
 // Firebase config bilgileri (Firebase Console'dan aldık)
 const firebaseConfig = {
-  apiKey: "AIzaSyDnvbFvXGHNbCbGs9feVuv7mSWwwbSOTAM",
+  apiKey: "",
   authDomain: "swiftcounter-1dff8.firebaseapp.com",
   projectId: "swiftcounter-1dff8",
   storageBucket: "swiftcounter-1dff8.appspot.com",  // Düzeltildi
